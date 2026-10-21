@@ -1,0 +1,9 @@
+order_id,order_date,store_id,store_name,barangay,city,product_id,product_name,category,quantity,unit_price
+ORD-1001,10/1/2026,S001,Aling Nena Sari-Sari,Brgy. 412,Manila,P001,Instant pancit canton,Noodles,200,16
+ORD-1001,10/1/2026,S001,Aling Nena Sari-Sari,Brgy. 412,Manila,P002,3-in-1 coffee sachet,Beverages,10,9
+ORD-1002,10/1/2026,S002,Mang Tonyo Store,Brgy. Holy Spirit,Quezon City,P004,Softdrink 1.5L,Beverages,20,75
+ORD-1002,10/1/2026,S002,Mang Tonyo Store,Brgy. Holy Spirit,Quezon City,P003,Canned sardines 155g,canned goods ,4,25
+ORD-1003,10/2/2026,S003,Tindahan ni Lorna,Brgy. San Antonio,Pasig,P005,Rice 1kg,Grains,-2,52
+ORD-1003,10/2/2026,S003,Tindahan ni Lorna,Brgy. San Antonio,Pasig,P006,Bath soap bar,Personal care,2,30
+ORD-1009,10/5/2026,S005,Mavies store,Brgy. Kawit,Cavite City,P010,Embutido Pork,Meat,12,50
+ORD-1009,10/5/2026,S005,Mavies store,Brgy. Kawit,Cavite City,P010,Embutido Pork,Meat,12,50
