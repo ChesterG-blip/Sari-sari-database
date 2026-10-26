@@ -53,3 +53,18 @@ CREATE TABLE IF NOT EXISTS dw.fact_sales (
     batch_id TEXT,
     UNIQUE (order_id, product_key) -- makes reloads idempotent
 );
+-- Data Mart View: dw.v_daily_category_sales (Extension C)
+CREATE MATERIALIZED VIEW IF NOT EXISTS dw.v_daily_category_sales AS
+SELECT
+    dd.full_date,
+    dp.category,
+    COUNT(DISTINCT fs.order_id) AS total_orders,
+    SUM(fs.quantity) AS total_units_sold,
+    SUM(fs.line_total) AS total_sales_php
+FROM dw.fact_sales fs
+JOIN dw.dim_date dd ON fs.date_key = dd.date_key
+JOIN dw.dim_product dp ON fs.product_key = dp.product_key
+GROUP BY dd.full_date, dp.category;
+
+CREATE UNIQUE INDEX IF NOT EXISTS idx_v_daily_category_sales
+ON dw.v_daily_category_sales (full_date, category);
