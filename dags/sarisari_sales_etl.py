@@ -243,3 +243,23 @@ def sarisari_sales_etl():
 
 
 sarisari_sales_etl()
+
+# 2nd DAG for Data Mart [Hourly Refresh for Materialized View] (Extension C)
+@dag(
+    dag_id="refresh_datamart_daily_category_sales",
+    schedule="@hourly",
+    start_date=datetime(2026, 10, 1),
+    catchup=False,
+    tags=["cselec1c", "datamart"],
+)
+
+def refresh_datamart():
+    @task
+    def refresh_view():
+        hook = PostgresHook(postgres_conn_id=DWH_CONN_ID)
+        hook.run("REFRESH MATERIALIZED VIEW CONCURRENTLY dw.v_daily_category_sales;")
+        print("Materialized view dw.v_daily_category_sales succesfully refreshed.")
+
+    refresh_view()
+
+refresh_datamart()
